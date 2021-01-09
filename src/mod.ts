@@ -12,7 +12,7 @@ interface EditDistanceCalculation {
 class EditDistanceCalculator implements EditDistanceCalculation {
     private grid: number[][] = [];
 
-    constructor(private source: string, private target: string) {}
+    constructor(private readonly source: string, private readonly target: string) {}
 
     calculateDistance(): number {
         this.addSourceAsRows();
@@ -38,7 +38,7 @@ class EditDistanceCalculator implements EditDistanceCalculation {
         }
     }
 
-    private calculateCellValue(i: number, j: number) {
+    private calculateCellValue(i: number, j: number): number {
         let cell = this.grid[i][j];
         if (this.source[i - 1] === this.target[j - 1]) {
             cell = this.grid[i - 1][j - 1];
@@ -55,7 +55,7 @@ class EditDistanceCalculator implements EditDistanceCalculation {
 }
 
 class EditDistance {
-    constructor(private distCalculator: EditDistanceCalculation) {}
+    constructor(private readonly distCalculator: EditDistanceCalculation) {}
 
     calculate(): number {
         return this.distCalculator.calculateDistance();
