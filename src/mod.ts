@@ -2,13 +2,6 @@ interface EditDistanceCalculation {
     calculateDistance(): number;
 }
 
-/**
- * Calculates the edit distance (minimum number of changes
- * needed to turn one string into the other).
- * @constructor
- * @param {string} source - The first string in the comparison
- * @param {string} target - The second string in the comparison
- */
 class EditDistanceCalculator implements EditDistanceCalculation {
     private grid: number[][] = [];
 
@@ -61,13 +54,8 @@ class EditDistance {
         return this.distCalculator.calculateDistance();
     }
 }
-
-/**
- * Returns the edit distance between strings A and B, or the minimum number of additions, deletions and substitutions needed to change A into B.
- * @param {string} a - The first string in the comparison.
- * @param {string} b - The second string in the comparison.
- */
-function eddist(a: string, b: string): number {
+/** Returns the edit distance between strings A and B, or the minimum number of additions, deletions and substitutions needed to change A into B. */
+export function eddist(a: string, b: string): number {
     if (typeof a !== 'string') {
         throw new Error('Parameter a must be of type string');
     }
@@ -78,5 +66,3 @@ function eddist(a: string, b: string): number {
         new EditDistanceCalculator(a, b))
         .calculate();
 }
-
-export { eddist }

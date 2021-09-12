@@ -1,3 +1,5 @@
+> This Deno module is DEPRECATED. It was made an an experiment and there are better, much faster implementations of this algorithm available. 
+
 # eddist-deno
 String edit distance calculation module for Deno. The edit distance is the minimum number of changes needed to turn string A into string B.
 
